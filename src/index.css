@@ -100,3 +100,18 @@ code {
   border-color: #ef1c1c;
   color: #ef1c1c
 }
+
+.dot {
+  height: 0.8em;
+  width: 0.8em;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#spent{
+  background-color: #f53669
+}
+
+#available{
+  background-color: #02b343
+}

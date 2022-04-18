@@ -46,7 +46,7 @@ class CreateCard extends Component{
                 <div className="col col-2">
                     <div class="badge badge-default badge-outlined">SUBSCRIPTION</div>
                 </div>
-                <div className="col col-4 col-sm-8">
+                <div className="col col-4">
                     <div class="text-secondary"><small>Limit: {item.limit} {item.spent_curr}</small></div>
                 </div>
             </div>
@@ -81,7 +81,24 @@ class CreateCard extends Component{
                             }
                             }}
                         />
+                        <div className="row justify-content-between" style={{marginTop:"15px"}}>
+                            <div className="col-12 col-sm-6 col-md-9">
+                                <span class="dot" id = "spent"></span><p class="text-dark" style = {{display: "inline", marginLeft:10}}>Spent</p>
+                            </div>
+                            <div className="col-4 col-md-3 col-sm-6">
+                                <p class="text-dark">{item.spent_value} {item.spent_curr}</p>
+                            </div>
+                        </div>
+                        <div className="row justify-content-between">
+                            <div className="col-12 col-sm-6 col-md-9">
+                                <span class="dot" id = "available"></span><p class="text-dark" style = {{display: "inline", marginLeft:10}}>Available</p>
+                            </div>
+                            <div className="col-4 col-md-3 col-sm-6">
+                                <p class="text-dark"><strong>{item.availabe_value} {item.spent_curr}</strong></p>
+                            </div>
+                        </div>
                         </Card.Body>
+
                     </Card>
                 </>
             )                  
@@ -116,6 +133,22 @@ class CreateCard extends Component{
                             borderRadius: "25px"
                             }}
                         />
+                        <div className="row justify-content-between" style={{marginTop:"15px"}}>
+                            <div className="col-12 col-sm-6 col-md-9">
+                                <span class="dot" id = "spent"></span><p class="text-dark" style = {{display: "inline", marginLeft:10}}>Spent</p>
+                            </div>
+                            <div className="col-4 col-md-3">
+                                <p class="text-dark">{item.spent_value} {item.spent_curr}</p>
+                            </div>
+                        </div>
+                        <div className="row justify-content-between">
+                            <div className="col-12 col-sm-6 col-md-9">
+                                <span class="dot" id = "available"></span><p class="text-dark" style = {{display: "inline", marginLeft:10}}>Available</p>
+                            </div>
+                            <div className="col-4 col-md-3">
+                                <p class="text-dark"><strong>{item.availabe_value} {item.spent_curr}</strong></p>
+                            </div>
+                        </div>
                     </Card.Body>
                 </Card>
                 <div class="w-100"></div>

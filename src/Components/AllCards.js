@@ -57,7 +57,7 @@ class AllCards extends Component{
             );
         }
         return(
-            <div class="alert alert-primary" role="alert">
+            <div class="alert alert-primary" role="alert" style={{width:"100%", textAlign: "center"}}>
                 {this.state.errorMessage}
             </div>   
         )
