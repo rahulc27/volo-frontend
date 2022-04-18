@@ -45,7 +45,7 @@ class UserCard extends Component{
     }
 
     fetchCards = (value) => {
-        this.setState({errorMessage:"Please wait...", successMessage:"",isOwnerSelect:true});
+        this.setState({errorMessage:"Please wait...", successMessage:"",isOwnerSelect:true, cards:[]});
         var url  = backendUrlFindByOwners + value;
         console.log(value);
         axios.get(url)

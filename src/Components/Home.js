@@ -16,9 +16,9 @@ class Home extends Component{
                 <div className="row" style={{"marginTop":"3%"}}>
                     <Router>
                         <ul class="nav nav-tabs col-12">
-                            <li className="nav-item"><Link className="nav-link" to="/userCards">Your</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/allCards">All</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/blocked">Blocked</Link></li>
+                            <li className="nav-item"><Link className="nav-link" to="/userCards" style={{color:"#f53669"}}>Your</Link></li>
+                            <li className="nav-item"><Link className="nav-link" to="/allCards" style={{color:"#f53669"}}>All</Link></li>
+                            <li className="nav-item"><Link className="nav-link" to="/blocked" style={{color:"#f53669"}}>Blocked</Link></li>
                         </ul>
                         <Routes>
                             <Route exact path="/" element={<UserCard></UserCard>}></Route>

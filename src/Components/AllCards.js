@@ -62,7 +62,7 @@ class AllCards extends Component{
         else{
             for (let i = 0, len = this.state.cards.length; i < len; i++) {
                 var s = this.state.cards[i].name.toLocaleUpperCase();
-                if(s.match(this.state.search.toLocaleUpperCase())){
+                if(s === this.state.search.toLocaleUpperCase()){
                     searchCards.push(this.state.cards[i]);
                 }
               }
@@ -70,6 +70,7 @@ class AllCards extends Component{
         
         return(
             <>
+                
                 <label class="sr-only" for="inlineFormInputGroupUsername2">Card Name</label>
                 <div class="input-group col-md-3 col-sm-12" style={{margin:10}} >
                 <div class="input-group-prepend">
@@ -77,8 +78,15 @@ class AllCards extends Component{
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                         </svg></div>
                 </div>
-                <input type="text" class="form-control col-md-12 col-sm-12" id="inlineFormInputGroupUsername2" placeholder="Card Name" onChange={this.handlechange}/>
+                <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Card Name" onChange={this.handlechange}/>
                 </div>
+                <div className="col-md-3">
+                    <button type="button" class="btn btn-secondary btn-sm" style={{margin:10}}><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
+                        <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                    </svg>Filters</button>
+                </div>
+
+                    
                 <CardGroup className="row justify-content-between" style = {{marginLeft: 10}}>
                     {
                         searchCards.map((item, index) => (
