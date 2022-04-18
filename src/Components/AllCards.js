@@ -10,7 +10,7 @@ class AllCards extends Component{
         super()
         this.state={
             cards : [],
-            errorMessage : "",
+            errorMessage : "Please Wait...",
             successMessage : ""
         }
     }
@@ -20,20 +20,23 @@ class AllCards extends Component{
     }
 
     fetchCards = () => {
-        this.setState({errorMessage:"", successMessage:""});
+        this.setState({errorMessage:"Please wait...", successMessage:""});
 
         axios.get(backendUrlFindAllCards)
         .then(
             response => {
                 this.setState({cards : response.data});
                 console.log(response.data);
+                if(this.state.cards.length == 0){
+                    this.setState({errorMessage : "Cards Not found !!!"});
+                }
             }).catch(error => {
                 if(error.response) {
                     console.log(error.response.data);
                     this.setState({errorMessage : error.response.data.message, successMessage : ""})
                 }
                 else{
-                    this.setState({errorMessage : "Please Check Your Details or Try Again Later", successMessage : ""})
+                    this.setState({errorMessage : "Please wait or Try Again Later", successMessage : ""})
                 }
                 
             });
@@ -44,7 +47,7 @@ class AllCards extends Component{
         var cards = this.state.cards;
         if(cards.length > 0){
             return(
-                <CardGroup className="row justify-content-around">
+                <CardGroup className="row justify-content-between" style = {{marginLeft: 10}}>
                     {
                         cards.map((item, index) => (
                             <CreateCard key = {index} package = {item} index = {index}></CreateCard>
@@ -55,7 +58,7 @@ class AllCards extends Component{
         }
         return(
             <div class="alert alert-primary" role="alert">
-                Cards Not Found !!
+                {this.state.errorMessage}
             </div>   
         )
 

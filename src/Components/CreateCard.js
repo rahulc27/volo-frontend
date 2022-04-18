@@ -32,7 +32,7 @@ class CreateCard extends Component{
             var formatted = timestamp.getDate() + " " + monthNames[timestamp.getMonth()];
             var type = 
             <div className="row justify-content-between" style={{marginTop:"15px"}}>
-                <div className="col col-2">
+                <div className="col col-2 col-sm-4">
                     <div class="badge badge-default badge-outlined">BURNER</div>
                 </div>
                 <div className="col col-4">
@@ -46,7 +46,7 @@ class CreateCard extends Component{
                 <div className="col col-2">
                     <div class="badge badge-default badge-outlined">SUBSCRIPTION</div>
                 </div>
-                <div className="col col-4">
+                <div className="col col-4 col-sm-8">
                     <div class="text-secondary"><small>Limit: {item.limit} {item.spent_curr}</small></div>
                 </div>
             </div>
