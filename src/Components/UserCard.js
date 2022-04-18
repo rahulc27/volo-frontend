@@ -53,7 +53,7 @@ class UserCard extends Component{
             response => {
                 this.setState({cards : response.data});
                 console.log(response.data);
-                if(this.state.cards.length == 0){
+                if(response.data.length == 0){
                     this.setState({errorMessage : "Cards Not found !!!"});
                 }
             }).catch(error => {
@@ -100,9 +100,16 @@ class UserCard extends Component{
                 </CardGroup>
             }
             else{
-                var view = <div class="alert alert-danger" role="alert" style={{width:"100%", textAlign: "center"}}>
-                Cards not found for this user.
-            </div> 
+                if(this.state.errorMessage == "Please wait..."){
+                    var view = <div class="alert alert-primary" role="alert" style={{width:"100%", textAlign: "center"}}>
+                    {this.state.errorMessage}
+                    </div>
+                }
+                else{
+                    var view = <div class="alert alert-danger" role="alert" style={{width:"100%", textAlign: "center"}}>
+                    {this.state.errorMessage}
+                    </div>
+                }
             }
         }
         return(
